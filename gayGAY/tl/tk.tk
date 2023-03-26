@@ -33,7 +33,7 @@ local ThunderImageUI = Instance.new("ImageLabel")
         ThunderImageUI.BorderSizePixel = 0
         ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
         ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
-        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=12609719637"
+        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=4364968297"
 
 if game:GetService("CoreGui"):FindFirstChild("SOME X GUI") then
 	game:GetService("CoreGui"):FindFirstChild("SOME X GUI"):Destroy()
@@ -140,7 +140,7 @@ Discord.Parent = game:GetService("CoreGui")
 Discord.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 
 function SomeLib:Window(text,mainclr,cls)
-	local PresetColor = mainclr or Color3.fromRGB(255,255,255) or _G.Color
+	local PresetColor = mainclr or Color3.fromRGB(30,20,20) or _G.Color
 	local CloseBind = cls or Enum.KeyCode.RightControl or _G.Toggle
     local currentservertoggled = ""
 	local minimized = false
@@ -166,7 +166,7 @@ function SomeLib:Window(text,mainclr,cls)
 	MainFrame.Name = "MainFrame"
 	MainFrame.Parent = Discord
 	MainFrame.AnchorPoint = Vector2.new(0.5, 0.5)
-	MainFrame.BackgroundColor3 = Color3.fromRGB(32, 34, 37)
+	MainFrame.BackgroundColor3 = Color3.fromRGB(147,112,219)
 	MainFrame.BackgroundTransparency = 1
 	MainFrame.BorderSizePixel = 0
 	MainFrame.ClipsDescendants = true
@@ -4763,25 +4763,6 @@ spawn(function()
  end
  end)
 
-Client = Main:Label("Client")
-
-function UpdateClient()
-local Fps = workspace:GetRealPhysicsFPS()
-Client:Refresh("[Fps] : "..Fps)
-end
-
-spawn(function()
- while true do wait(.1)
- UpdateClient()
- end
- end)
-
-Client1 = Main:Label("Client")
-
-function UpdateClient1()
-local Ping = game:GetService("Stats").Network.ServerStatsItem["Data Ping"]:GetValueString()
-Client1:Refresh("[Ping] : "..Ping)
-end
 
 spawn(function()
  while true do wait(.1)
