@@ -1943,7 +1943,7 @@ end
 
 local win = SomeLib:Window("", _G.Color, _G.Toggle)
 
-local Library = win:Server("DESTINY HUB","")
+local Library = win:Server("SNOW HUB","")
 
 local Main = Library:Channel("Main","rbxassetid://11446825283")
 local Setting = Library:Channel("Settings","rbxassetid://11446835336")
@@ -1956,6 +1956,7 @@ local DevilFruit = Library:Channel("Fruit+Esp","rbxassetid://11446965348")
 local Shop = Library:Channel("Shop","rbxassetid://6031265976")
 local Misc = Library:Channel("Misc","rbxassetid://11447063791")
 local Op = Library:Channel("Status", "rbxassetid://7040410130")
+local Race = Library:Tab("Race V4","rbxassetid://11446900930")
 
 -- function Main --
 
@@ -9455,7 +9456,7 @@ spawn(function()
 	end
 end)
 
-polo:Label("\\\\\  WORLD  //")
+polo:Label("\\\\\  Teleport SEA  //")
  
  polo:Button("Teleport To Sea 1",function()
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelMain")
@@ -9470,7 +9471,7 @@ polo:Label("\\\\\  WORLD  //")
   game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer("TravelZou")
   end)
  
- polo:Button("You gay haha",function()
+ polo:Button("XXXXXXXXXXX",function()
   for i,v in pairs(game:GetService("Workspace").SeaBeasts:GetChildren()) do
   if v:FindFirstChild("HumanoidRootPart") then
   topos(v.HumanoidRootPart.CFrame*CFrame.new(0,100,0))
@@ -9944,7 +9945,7 @@ polo:Label("\\\\\  WORLD  //")
      end
 end)
 
-Dungeon:Seperator("Use in Dungeon Only!")
+Dungeon:Label("Use in Dungeon Only!")
 
 chip = {
 	"Flame", 
@@ -10032,6 +10033,7 @@ spawn(function()
     end
 end)
 
+
 Dungeon:Toggle("Kill Aura",_G.Kill_Aura,function(value)
  _G.Kill_Aura = value  
 end)
@@ -10083,15 +10085,15 @@ end)
   Dungeon:Button("Next Island",function()
    pcall(function()
     if game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5") then
-    topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,70,100))
+    TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 5").CFrame*CFrame.new(0,70,100))
     elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4") then
-    topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*CFrame.new(0,70,100))
+    TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 4").CFrame*CFrame.new(0,70,100))
     elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3") then
-    topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*CFrame.new(0,70,100))
+    TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 3").CFrame*CFrame.new(0,70,100))
     elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2") then
-    topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*CFrame.new(0,70,100))
+    TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 2").CFrame*CFrame.new(0,70,100))
     elseif game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1") then
-    topos(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*CFrame.new(0,70,100))
+    TP(game:GetService("Workspace")["_WorldOrigin"].Locations:FindFirstChild("Island 1").CFrame*CFrame.new(0,70,100))
     end
     end)
   end)
@@ -10118,7 +10120,7 @@ local function toTarget(...)
 		Speed = 300
 	end
 
-function topos(Pos)
+function TP(Pos)
             Distance = (Pos.Position - game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.Position).Magnitude
             if Distance < 250 then
                 Speed = 600
@@ -10136,50 +10138,10 @@ function topos(Pos)
 end
 end
 
-Dungeon:Seperator("\\\\\  Law Dungeon  //")
+Dungeon:Label("\\\\\  Law Dungeon  //")
 
 Dungeon:Toggle("Auto Buy Law Chip",_G.Auto_Buy_Law_Chip,function(value)
  _G.Auto_Buy_Law_Chip = value
-end)
-
-spawn(function()
-	while wait() do
-		if _G.Auto_Buy_Law_Chip then
-			pcall(function()
-				if game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Microchip") or game:GetService("Players").LocalPlayer.Character:FindFirstChild("Microchip") or game:GetService("Workspace").Enemies:FindFirstChild("Order [Lv. 1250] [Raid Boss]") or game:GetService("ReplicatedStorage"):FindFirstChild("Order [Lv. 1250] [Raid Boss]") then
-				
-				else
-					local args = {
-						[1] = "BlackbeardReward",
-						[2] = "Microchip",
-						[3] = "2"
-					}
-					game:GetService("ReplicatedStorage").Remotes.CommF_:InvokeServer(unpack(args))
-				end
-			end)
-		end
-	end
-end)
-
-Dungeon:Toggle("Auto Start Law Dungeon",_G.Auto_Start_Law_Dungeon,function(value)
- _G.Auto_Start_Law_Dungeon = value
-end)
-
-
-spawn(function()
-	while wait() do
-		if _G.Auto_Start_Law_Dungeon then
-			pcall(function()
-				if game:GetService("Players").LocalPlayer.Character:FindFirstChild("Microchip") or game:GetService("Players").LocalPlayer.Backpack:FindFirstChild("Microchip") then
-					fireclickdetector(game:GetService("Workspace").Map.CircleIsland.RaidSummon.Button.Main.ClickDetector)
-				end
-			end)
-		end
-	end
-end)
-
-Dungeon:Toggle("Auto Kill Law",_G.Auto_Kill_Law,function(value)
-_G.Auto_Kill_Law = value
 end)
 
 spawn(function()
@@ -11648,3 +11610,115 @@ spawn(function()
         end)
     end
 end)
+
+Race:Seperator("Race V4")
+    
+    Race:Button("Teleport To Timple Of Time",function()
+  Game:GetService("Players").LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(28286.35546875, 14895.3017578125, 102.62469482421875)
+    end)
+    
+Race:Button("Teleport To Lever Pull",function()
+  topos(CFrame.new(28575.181640625, 14936.6279296875, 72.31636810302734))
+end)
+
+Race:Button("Teleport To Acient One (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28981.552734375, 14888.4267578125, -120.245849609375))
+end)
+   
+   Race:Button("Unlock Lever.", function()
+venyx:Notify("Unlocked")
+if game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt") then
+    game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt"):Remove()
+else
+--[[]]
+end
+wait(0.1)
+local ProximityPrompt = Instance.new("ProximityPrompt")
+ProximityPrompt.Parent = game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt
+ProximityPrompt.MaxActivationDistance = 10
+ProximityPrompt.ActionText = "Secrets Beholds Inside"
+ProximityPrompt.ObjectText = "An unknown lever of time"
+
+function onProximity()
+local part = game:GetService("Workspace").Map["Temple of Time"].MainDoor1
+local TweenService = game:GetService("TweenService")
+
+local startPosition = part.Position
+local endPosition = startPosition + Vector3.new(0, -50, 0)
+
+local tweenInfo = TweenInfo.new(10, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+local tween = TweenService:Create(part, tweenInfo, {Position = endPosition})
+
+tween:Play()
+
+local partnew = game:GetService("Workspace").Map["Temple of Time"].MainDoor2
+local TweenService = game:GetService("TweenService")
+
+local startPosition = partnew.Position
+local endPosition = startPosition + Vector3.new(0, -50, 0)
+
+local tweenInfo = TweenInfo.new(10, Enum.EasingStyle.Linear, Enum.EasingDirection.Out)
+local tween = TweenService:Create(partnew, tweenInfo, {Position = endPosition})
+
+tween:Play()
+
+local SoundSFX = Instance.new("Sound")
+SoundSFX.Parent = workspace
+SoundSFX.SoundId = "rbxassetid://1904813041"
+SoundSFX:Play()
+SoundSFX.Name = "POwfpxzxzfFfFF"
+game:GetService("Workspace").Map["Temple of Time"].Lever.Prompt:FindFirstChild("ProximityPrompt"):Remove()
+wait(5)
+workspace:FindFirstChild("POwfpxzxzfFfFF"):Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+game:GetService("Workspace").Map["Temple of Time"].NoGlitching:Remove()
+end
+
+ProximityPrompt.Triggered:Connect(onProximity)
+end)
+
+Race:Button("Clock Acces.", function()
+    game:GetService("Workspace").Map["Temple of Time"].DoNotEnter:Remove()
+    game:GetService("Workspace").Map["Temple of Time"].ClockRoomExit:Remove()
+end)
+
+Race:Toggle("Disabled Inf Stairs", nil, function(value)
+	game.Players.LocalPlayer.Character.InfiniteStairs.Disabled = value
+end)
+   Race:Line()
+ 
+  Race:Button("Teleport Cyborg Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28492.4140625, 14894.4267578125, -422.1100158691406))
+  end)
+  
+  Race:Button("Teleport Fish Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28224.056640625, 14889.4267578125, -210.5872039794922))
+  end)
+  
+  Race:Button("Teleport Ghoul Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28672.720703125, 14889.1279296875, 454.5961608886719))
+  end)
+  
+  Race:Button("Teleport Human Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(29237.294921875, 14889.4267578125, -206.94955444335938))
+  end)
+  
+  Race:Button("Teleport Mink Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(29020.66015625, 14889.4267578125, -379.2682800292969))
+  end)
+  
+  Race:Button("Teleport Sky Door (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28967.408203125, 14918.0751953125, 234.31198120117188))
+  end)
+  
+  Race:Line()
+  
+  Race:Button("Teleport To Safe Zone When Pvp (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28273.0859375, 14896.5078125, 157.42063903808594))
+  end)
+  
+  Race:Button("Teleport Pvp Zone (Must Be in Temple Of Time!)",function()
+  topos(CFrame.new(28766.681640625, 14967.1455078125, -164.13290405273438))
+  end)
+  end
