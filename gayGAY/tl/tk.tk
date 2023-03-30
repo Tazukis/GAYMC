@@ -33,7 +33,7 @@ local ThunderImageUI = Instance.new("ImageLabel")
         ThunderImageUI.BorderSizePixel = 0
         ThunderImageUI.Position = UDim2.new(0.0, 0, 0.0, 0)
         ThunderImageUI.Size = UDim2.new(0, 50, 0, 50)
-        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=12940605720"
+        ThunderImageUI.Image = "http://www.roblox.com/asset/?id=12940939469"
 
 if game:GetService("CoreGui"):FindFirstChild("SOME X GUI") then
 	game:GetService("CoreGui"):FindFirstChild("SOME X GUI"):Destroy()
